@@ -1,9 +1,8 @@
 #include <iostream>
 
 int main(){
-    \\\\\\\\\\\\;
     
-    int x;
+    int x
     std::cin >> x;
     std::cout << x + 5;
 
