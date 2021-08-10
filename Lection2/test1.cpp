@@ -4,6 +4,6 @@ int main(){
     
     int x;
     std::cin >> x;
-    std::cout << s.size();
+    std::cout << x / 0;
 
 }
