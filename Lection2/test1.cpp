@@ -2,8 +2,7 @@
 
 int main(){
     
-    int x;
-    std::cin >> x;
-    std::cout << x / 0;
+    int a[100];
+    a[10000000000000] = 1;
 
 }
