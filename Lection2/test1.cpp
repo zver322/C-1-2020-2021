@@ -1,8 +1,10 @@
 #include <iostream>
 
-int main(){
-    
-    int a[100];
-    a[10000000000000] = 1;
+void f(){
+    f();
+}
 
+
+int main(){
+    f();
 }
