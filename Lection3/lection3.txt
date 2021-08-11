@@ -1,0 +1,163 @@
+Namespace используется для того, чтобы разграничить области видимсоти. Так как в больших 
+проектах заводить глобальные переменные не очень хорошо, то можно создавать namespace,
+чтобы разграничивать область видимсоти переменных.
+
+std - это тоже namespace, так что по факту когда мы пишем std::cout, мы вызываем
+сущность из namespace std. 
+
+Можно написать using namespace std; - и тогда все имена из std появяться. Но так делать нельзя,
+потмоу что может быть конфликт и ак запрещено по код стайлк
+
+Если влом все время писать std::cout, то можно просто сделать using std::cout,
+тогда можно просто писать cout.
+
+
+1.5 Basic types and supported operations
+Команда factor в linux раскладыает число на простые множители
+Что-то статическое известно на этапе компиляции, а динамическое в runtime.
+-------------------------------------
+short - 2 байта (обычно)
+int - 4 байта обычно, значений от [-2 ** 31; 2 ** 31]
+2**31 == 2'147'483'648 - с С++14 такая запись корректна.
+Проблема 2039 года. Ситуация, когда время отсчитываемое в секундах от 1970 года. 
+Произойдет переполнение int, тогда надо будет переодить на 64битную кодирувоку. Будут проблемы
+со временем. 
+long - 4 байта обычно, парктические не нужен
+long long - 8 байт [-2**63; 2**63]
+
+unsigned int [0; 2**32]
+
+int32_t - 32 бит хочу, чтобы было точно
+int64_t
+int128_t
+uint32_t
+uint64_t
+using site_t = uint64_t
+
+------------------------------------
+
+float - 4 байте
+double (удвоенный float) - 8 байт
+По ссылке ниже рассказывается про double
+https://en.wikipedia.org/wiki/Double-precision_floating-point_format
+long double - 16 байт
+
+------------------------------------
+
+char - однобайтовое целое число. Тип ведет себя как целое число.При арифмитичесикх операциях
+превращаются в int
+wchar16_t
+wchar32_t
+signed char - маленькие числа, которые не превзойдут 120. Экономия памяти. 
+unsigned char
+
+------------------------------------
+
+bool - 1 байт.
+|| && != ==
+true
+flase
+
+------------------------------------
+Interger promotion - приведение int к long long например. Ну или при сумме двух переменных,
+которрые занимают разное место в памяти, то будет преведение к более высокому типу.
+Floatin promotion
+flase - 0
+true - ост числа. 
+
+Int преобразуется в unsigned int. 
+int x = -1;
+unsigned y = 0;
+x + y; - получтся 4 млрд. Так как приведение отрицательного числа к unsigned,
+получится очень большое положительное.
+
+
+f + 0.5f; - так 0.5 базово является double, и если мы хотим получить результат float, то 
+надо использовать литеральный суфикс f.
+
+Контейнеры. 
+std::string s = "aaaaaaa";
+s[1] = 'b';
+s.size();
+s.substr(3, 2); с 3 2 символа
+s + 'i';
+'e' + s;
+s + s;
+s += 'i'
+'i' += s; - так нельзя
+
+std::vector<int> v(10);
+v[5] = 3;
+v.resize(20);
+v.push_back(4);
+v.pop_back();
+v.front();
+v.back();
+
+st.push(0);
+st.pop();
+st.top();
+st.empty();
+
+std::set<int> set;
+std::unordered_set<int> uset;
+set.insert(4);
+set.erase(2);
+set.count(3);
+s.size
+
+std::map<std::string, int> m;
+std::unordered_map<std::string, int> m;
+// like dict in python. But here it map is ordered, but dict in Python is unordered.
+
+m["aaaaaaaaaaa"] = 8;
+m["aaaaaaaaaaa"] = 3;
+m.size();
+std::cout << m["aaa"];
+m.count("aaa");
+m.empty();
+
+
+1.7 Control statemnets
+
+if (condition) {
+    statement;
+} else {
+
+}
+
+switch (expression) {
+case 1:
+    statements...;
+    break;
+case 2;
+    statements...;
+    break;
+default;
+}
+
+for (declaration or expression; bool-expression; expression) {
+    statements;
+
+    break
+    continue; - переход к селд операции.
+}
+
+while (condition) {
+
+}
+
+do {
+
+} while (condition);
+
+++i; - не создает копию.
+
+
+
+
+
+
+google code style: https://google.github.io/styleguide/cppguide.html
+
+1.6 Expressions and operators
