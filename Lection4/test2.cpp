@@ -2,9 +2,9 @@
 
 int main() {
     using std::cout;
-    int x = 0xff;
+    double x = 3.14;
 
-    int* p = &x;
+    double* p = &x;
 
     cout << p << "\n";
     cout << p + 1 << "\n";
