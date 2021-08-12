@@ -3,6 +3,6 @@
 
 int main() {
     int x = 0;
-    std::string s = "abc";
-    std::cout << (2 < 3 ? x : s);
+    double y = 1;
+    std::cout << (2 < 3 ? x : y);
 }
