@@ -1,9 +1,14 @@
 #include <iostream>
 
 int main() {
-    int x = 5;
+    using std::cout;
+    int x = 0xff;
+
     int* p = &x;
 
-    std::cout << *p << "\n";
-    std::cout << sizeof(p) << "\n";
+    cout << p << "\n";
+    cout << p + 1 << "\n";
+
+    cout << *p << "\n";
+    cout << sizeof(p) << "\n";
 }
