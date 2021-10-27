@@ -1,15 +1,38 @@
 #include <iostream>
 
+void f(const int&x ) {
+    std::cout << 1;
+}
+
+void f(int& x) {
+    std::cout << 2;
+}
+
 int main() {
     int x = 3;
-    double d = (double) x; // С - style
     // 2.7.1 Static cast
     double c = static_cast<double>(x);
     // 2.7.2 Reinterpret cast
-    std::cout <<  *reinterpret_cast<double*>(&x) << std::endl;
-    // Были байты кодирующие тройку, был приведен казатель на double на эти байты, а затем разыменован. Эффект как будто посмотрел, что под
-    // ним лежит double. 
-    //std::cout <<  *static_cast<double*>(&x) << std::endl; // Нельзя
+    double dd = 3.14;
+    //std::cout << std::hex << reinterpret_cast<int&>(dd) << std::endl; // std::hex - манипулятор потока, который выводит в 16-ти ричной системе.
+    // Также надо ставить &, потому что мы раюотаем с сущ объектами и смотрим на них под други углом. 
+    
+    //2.7.3 Const cast
+    {
+        const int cx = 1;
+
+        int &x = const_cast<int&>(cx);
+        x = 2; // Это ub
+        //std::cout << cx << std::endl;
+    }
+    {
+        int x = 0;
+        const int& y = x;
+        f(const_cast<const int&>(x)); // Так делать неопасно. Неконстанта кастуется к константе. В обратную сторону опасно.
+
+
+
+    }
     
 
 
