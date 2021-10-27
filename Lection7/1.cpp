@@ -29,10 +29,16 @@ int main() {
         int x = 0;
         const int& y = x;
         f(const_cast<const int&>(x)); // Так делать неопасно. Неконстанта кастуется к константе. В обратную сторону опасно.
-
-
-
     }
+
+    // 2.7.4 C-style cast
+
+    {
+        int x = 0;
+        double d = (double)(x);
+    }
+
+    // 2.7.5 Dynamic cast
     
 
 
